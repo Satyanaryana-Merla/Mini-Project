@@ -37,9 +37,11 @@ Setting Up the Virtual Environment
 
    This will install all the dependencies listed in the `requirements.txt` file, which may include libraries like `pandas`, `numpy`, and other packages necessary for the project to run.
 
-Run the python scripts: ModifiedAmortization.py-------------- copy and past in the cmd
-                        SimpleAmortization.py----------------copy and past in the cmd 
-                        SimpleAmortization_dataset_in.py------copy and past in the cmd
+Run the python scripts: 
+
+ModifiedAmortization.py-------------- copy and past in the cmd
+SimpleAmortization.py----------------copy and past in the cmd 
+SimpleAmortization_dataset_in.py------copy and past in the cmd
 
 
   Project Structure
