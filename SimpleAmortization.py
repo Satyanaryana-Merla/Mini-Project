@@ -82,7 +82,7 @@ annual_rate = 0.08  # Fixed annual interest rate of 8%
 loan_data = []
 
 for i, row in data.iterrows():
-    loan_number = i + 1
+    loan_number = i + 1 # type: ignore
     start_date = row['start_date']
     term_months = row['term_months']
     
@@ -90,7 +90,7 @@ for i, row in data.iterrows():
     start_date = pd.to_datetime(start_date).strftime('%d-%m-%Y')
     
     # Calculate the monthly payment using the loan parameters
-    payment = calculate_monthly_payment(loan_amounts[i], annual_rate, term_months)
+    payment = calculate_monthly_payment(loan_amounts[i], annual_rate, term_months) # type: ignore
     
     # Handle CPR: check if it's already a float or percentage string
     cpr = row['cpr']
@@ -100,7 +100,7 @@ for i, row in data.iterrows():
     else:  # If CPR is already a float (e.g., 5.0)
         cpr = cpr / 100  # Convert to decimal format
     
-    loan_amount = loan_amounts[i]  # Assign loan amount based on the predefined list
+    loan_amount = loan_amounts[i]  # type: ignore # Assign loan amount based on the predefined list
     
     loan_data.append({
         "loan_number": loan_number,
