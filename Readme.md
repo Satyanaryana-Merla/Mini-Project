@@ -40,7 +40,9 @@ Setting Up the Virtual Environment
 Run the python scripts: 
 
 ModifiedAmortization.py-------------- copy and past in the cmd
+
 SimpleAmortization.py----------------copy and past in the cmd 
+
 SimpleAmortization_dataset_in.py------copy and past in the cmd
 
 
