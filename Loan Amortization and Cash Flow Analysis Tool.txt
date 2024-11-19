@@ -1,0 +1,30 @@
+Project Title: Loan Amortization and Cash Flow Analysis Tool
+
+Objective:  
+Developed a Python-based tool to automate the calculation of amortization schedules, incorporating fixed monthly payments, prepayments, and interest, while providing consolidated cash flow summaries for a portfolio of loans.
+
+Approach:  
+- Data Preprocessing: 
+   - Utilized Pandas to read and process loan data from Excel, including dynamic handling of loan-specific parameters like interest rates, terms, and Conditional Prepayment Rates (CPRs).
+   - Applied robust data validation techniques to standardize date formats and ensure accuracy in calculations.
+  
+- Algorithm Development:  
+   - Designed custom functions to compute monthly payments using amortization formulas and calculate prepayments based on CPR.
+   - Developed an iterative logic to generate amortization schedules for each loan, tracking metrics like principal, interest, and prepayment over time.
+
+- Data Aggregation:  
+   - Leveraged Pandas GroupBy operations to summarize schedules by date and loan, creating consolidated views of total payments, interest, and balances.
+   - Automated sorting and formatting to ensure chronological order and logical grouping.
+
+- Output Generation:  
+   - Exported results to both CSV and Excel formats using OpenPyXL for integration with existing reporting workflows.
+   - Created detailed summaries for individual loans and portfolio-wide consolidated schedules.
+
+Relevant Skills:  
+- Programming: Proficient in Python, with a focus on data manipulation (Pandas) and numerical calculations (NumPy).  
+- Financial Modeling: Strong understanding of loan amortization, prepayment modeling, and cash flow analysis.  
+- Data Handling: Experience in data validation, transformation, and exporting outputs to diverse formats.  
+- Automation: Streamlined repetitive tasks for efficiency, ensuring scalability for larger loan portfolios.
+
+Outcome:  
+The tool significantly reduced manual effort and improved accuracy in loan reporting, delivering actionable insights for stakeholders to better manage and forecast portfolio cash flows.

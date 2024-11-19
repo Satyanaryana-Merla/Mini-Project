@@ -1,0 +1,82 @@
+ Loan Amortization Documentation
+
+ Overview
+This process involves generating loan amortization schedules for multiple loans with varying parameters, including different loan amounts, term lengths, and interest rates. The procedure calculates the monthly payments, generates a detailed amortization schedule, handles prepayments based on a prepayment rate (CPR), and aggregates the results for further analysis.
+
+ Key Components
+
+1. Loan Parameters:
+   - Loan Amount: The total amount of the loan.
+   - Annual Interest Rate: The fixed annual rate of interest applied to the loan.
+   - Term (in Months): The number of months over which the loan will be repaid.
+   - CPR (Conditional Prepayment Rate): The rate at which prepayments are expected to occur, either provided as a percentage or a decimal.
+
+2. Amortization Calculations:
+   - Monthly Payment: The fixed monthly payment calculated using the loan amortization formula. If the interest rate is 0%, the payment is simply the loan amount divided by the number of months.
+   - CPR Conversion: If the CPR is provided as a percentage (e.g., 5%), it is converted into a decimal (e.g., 0.05).
+   - SMM (Single Monthly Mortality): A calculation based on CPR, which helps determine the expected prepayment amount each month.
+   - Loan Amortization Schedule: A month-by-month breakdown of the loan repayment, including:
+     - Interest: The interest payment based on the remaining loan balance.
+     - Prepayment: The amount paid off early according to the CPR.
+     - Principal: The portion of the monthly payment applied to reduce the loan balance.
+     - Closing Balance: The remaining loan balance after accounting for the principal payment and prepayment.
+
+3. Amortization Schedule Generation:
+   - The amortization schedule is generated for each loan, showing monthly payments, interest, prepayments, and remaining balances.
+   - The schedule runs until the loan balance reaches zero or the term length is completed.
+
+4. Consolidation and Aggregation:
+   - Consolidated Schedule: All individual loan schedules are combined into one dataset, ordered by loan number and date.
+   - Aggregated Schedule: The consolidated schedule is then aggregated by date and loan number, providing a summarized view of payments, prepayments, interest, principal, and closing balances.
+
+5. Output Formats:
+   - CSV Files: The results are saved as CSV files, providing an easily accessible format for further analysis.
+   - Excel Files: The consolidated and aggregated schedules are also saved in Excel format for users who prefer working with spreadsheets.
+
+ Detailed Steps
+
+1. Reading Input Data:
+   - The input loan data is read from an Excel file, which includes the loan start date, term length (in months), and CPR for each loan.
+   
+2. Monthly Payment Calculation:
+   - For each loan, the monthly payment is computed using the loan amortization formula, which factors in the loan amount, the interest rate, and the term length.
+
+3. CPR Handling:
+   - CPR values, which can be expressed as percentages or decimals, are converted into decimals for consistent calculation.
+
+4. Amortization Schedule Creation:
+   - For each loan, the amortization schedule is generated month-by-month, considering the monthly payment, interest charges, prepayments, and remaining balances.
+
+5. Saving the Results:
+   - The results are saved in two forms:
+     - A consolidated amortization schedule that includes all loans in a single dataset, showing each periods details for each loan.
+     - An aggregated amortization schedule that groups the data by date and loan number, providing a summary of the total payments, prepayments, interest, principal, and closing balance for each loan across all periods.
+
+6. Final Output:
+   - The schedules are saved as:
+     - CSV files: `converted_loan_data.csv`, `consolidated_amortization_schedule.csv`, and `aggregated_amortization_schedule.csv`
+     - Excel files: `consolidated_amortization_schedule.xlsx` and `aggregated_amortization_schedule.xlsx`
+
+ Key Functions
+
+1. `calculate_monthly_payment`: Computes the monthly payment for a loan based on the loan amount, annual interest rate, and loan term (in months).
+   
+2. `calculate_smm`: Calculates the Single Monthly Mortality (SMM) from the CPR, which is used to estimate the prepayment amount.
+
+3. `generate_amortization_schedule`: Generates the detailed amortization schedule for a loan, including interest, principal, prepayments, and balance for each period.
+
+ Output Files
+
+1. `converted_loan_data.csv`: A CSV file containing the loan details, including loan amount, interest rate, start date, term length, payment, and CPR.
+   
+2. `consolidated_amortization_schedule.csv`: A CSV file with the full amortization schedule for all loans, with each periods data for interest, principal, payment, prepayment, and balance.
+
+3. `aggregated_amortization_schedule.csv`: A CSV file with the aggregated summary of all loans, showing total payments, interest, prepayments, principal, and closing balance for each date and loan number.
+
+4. `consolidated_amortization_schedule.xlsx`: An Excel version of the consolidated amortization schedule.
+
+5. `aggregated_amortization_schedule.xlsx`: An Excel version of the aggregated amortization schedule.
+
+ Conclusion
+
+This process provides a comprehensive analysis of loan amortization, incorporating monthly payments, interest calculations, prepayments based on CPR, and consolidated/aggregated views of the results. It is designed for use in financial analysis and loan servicing, enabling stakeholders to track loan performance over time and understand the impacts of prepayments.

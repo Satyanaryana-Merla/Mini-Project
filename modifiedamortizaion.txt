@@ -1,0 +1,120 @@
+ Documentation for Loan Amortization Script
+
+ Overview
+
+This script performs loan amortization calculations for multiple loans, including generating amortization schedules, prepayment calculations, and aggregating the results. It calculates monthly payments based on predefined loan amounts, interest rates, and loan terms. Additionally, it takes into account the Conditional Prepayment Rate (CPR) to calculate prepayments and adjusts the amortization schedules accordingly. The final results are saved in both CSV and Excel formats.
+
+ Key Components
+
+ 1. Loan Calculation Functions
+
+- `calculate_monthly_payment(loan_amount, annual_rate, term_months)`:
+    - This function computes the fixed monthly payment for a loan using the amortization formula. 
+    - Inputs:
+        - `loan_amount`: The total loan amount.
+        - `annual_rate`: The annual interest rate (as a decimal, e.g., 8% is 0.08).
+        - `term_months`: The total term of the loan in months.
+    - Outputs:
+        - The calculated monthly payment.
+
+- `calculate_smm(cpr)`:
+    - This function calculates the Single Monthly Mortality (SMM) based on the given CPR value. 
+    - Inputs:
+        - `cpr`: The Conditional Prepayment Rate (as a decimal).
+    - Outputs:
+        - The Single Monthly Mortality (SMM) value, representing the portion of the loan that is expected to be prepaid in a given month.
+
+ 2. Main Amortization Logic
+
+- `generate_amortization_schedule(loan)`:
+    - This function generates the full amortization schedule for each loan, taking into account monthly payments, interest, prepayments (based on CPR), and the loan balance.
+    - Inputs:
+        - `loan`: A dictionary containing loan details (loan amount, interest rate, term, start date, and CPR).
+    - Outputs:
+        - A DataFrame containing the detailed amortization schedule for the loan, with columns such as:
+            - `period`: The loan period (month number).
+            - `date`: The corresponding date for that period.
+            - `opening_balance`: The loan balance at the start of the period.
+            - `payment`: The monthly payment (fixed).
+            - `prepayment`: The calculated prepayment amount (based on CPR).
+            - `interest_rate`: The annual interest rate (formatted as a percentage).
+            - `monthly_interest_rate`: The monthly interest rate (formatted as a percentage).
+            - `interest`: The interest paid for the current period.
+            - `principal`: The principal portion of the payment.
+            - `closing_balance`: The remaining loan balance after the current payment.
+
+ 3. Data Input and Processing
+
+- Loan Data Input:
+    - The script reads an Excel file named `"SimpleAmortizationTest.xlsx"`, which contains details about each loan, including:
+        - `start_date`: The start date of the loan.
+        - `term_months`: The loan term in months.
+        - `cpr`: The Conditional Prepayment Rate for each loan.
+
+    - A predefined list of loan amounts (`loan_amounts`) and an annual interest rate (`annual_rate`) are used to calculate the payments for each loan.
+
+ 4. Schedule Generation and Output
+
+- Generating Schedules:
+    - For each loan, the script generates an amortization schedule using the `generate_amortization_schedule` function.
+    - All the generated schedules are consolidated into one DataFrame (`consolidated_schedule`), sorted by loan number and date.
+
+- Aggregated Schedule:
+    - The script also aggregates the amortization schedules by date and loan number. This allows for an overview of total payments, prepayments, interest, and principal by date across all loans.
+
+ 5. Saving Output
+
+The script saves the following outputs:
+- CSV Files:
+    - `converted_loan_data.csv`: Contains the original loan data with computed monthly payments.
+    - `consolidated_amortization_schedule.csv`: Contains the full, consolidated amortization schedule for all loans.
+    - `aggregated_amortization_schedule.csv`: Contains the aggregated amortization schedule by date and loan number.
+  
+- Excel Files:
+    - `consolidated_amortization_schedule.xlsx`: The consolidated schedule saved in Excel format.
+    - `aggregated_amortization_schedule.xlsx`: The aggregated schedule saved in Excel format.
+
+ 6. Error Handling and Formatting
+
+- CPR Conversion:
+    - If the CPR value is provided as a string (e.g., "5%"), the script strips the "%" sign and converts it into a decimal format. If the CPR is already a float, it is converted directly into decimal format.
+  
+- Rounding:
+    - Values like monthly payment, interest, principal, and closing balance are rounded to two decimal places for accuracy and readability.
+
+ Input Files
+
+ `SimpleAmortizationTest.xlsx`:
+This file should contain at least the following columns:
+- `start_date`: The start date of the loan (in date format).
+- `term_months`: The loan term in months.
+- `cpr`: The Conditional Prepayment Rate, which can either be a percentage string (e.g., '5%') or a float (e.g., 0.05).
+
+ Output Files:
+The script generates the following output files:
+1. `converted_loan_data.csv`: Loan data with calculated payments.
+2. `consolidated_amortization_schedule.csv`: A full amortization schedule for all loans.
+3. `aggregated_amortization_schedule.csv`: Aggregated amortization schedule by date.
+4. `consolidated_amortization_schedule.xlsx`: Consolidated amortization schedule in Excel format.
+5. `aggregated_amortization_schedule.xlsx`: Aggregated amortization schedule in Excel format.
+
+ Usage
+
+1. Place the `SimpleAmortizationTest.xlsx` file in the working directory.
+2. Run the script.
+3. The script will read the loan data, process the amortization calculations, and generate CSV and Excel files with the results.
+4. Check the generated output files for the calculated schedules and aggregated results.
+
+ Requirements
+
+- Python 3.x
+- Libraries: `pandas`, `numpy`, `openpyxl`, `datetime`
+
+Ensure that the required libraries are installed using the following command:
+```bash
+pip install pandas numpy openpyxl
+```
+
+ Conclusion
+
+This script automates the calculation of loan amortization schedules, including monthly payments, interest, principal, and prepayments, while taking into account the conditional prepayment rate (CPR). It provides detailed insights into the loan repayment process and outputs the results in both CSV and Excel formats for further analysis or reporting.

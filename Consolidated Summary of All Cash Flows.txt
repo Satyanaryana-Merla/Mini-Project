@@ -1,0 +1,96 @@
+ Consolidated Summary of All Cash Flows
+
+This section provides a summary of all cash flows generated during the amortization schedule calculation. It includes the totals for payments, prepayments, interest, principal, and the final loan balance for all loans combined.
+
+ Key Metrics
+
+1. Total Payment: The sum of all scheduled monthly payments across all loans.
+2. Total Prepayment: The sum of all prepayments made across all loans (based on CPR).
+3. Total Interest Paid: The cumulative interest paid across all loans over their terms.
+4. Total Principal Repaid: The total principal repaid for all loans.
+5. Final Loan Balance: The remaining loan balance at the end of the loan term.
+
+
+ Calculation Process
+
+1. Data Aggregation:
+   - Each loan's cash flows are calculated separately for each period and then combined into a single consolidated dataset.
+   - Aggregation is done by summing up the respective columns for payment, prepayment, interest, and principal.
+
+2. Final Loan Balance:
+   - At the end of the term for all loans, the remaining balances are summed up. Ideally, this should be $0 if all loans are fully repaid.
+
+3. Outputs:
+   - The summarized cash flows are saved in an aggregated format as:
+     - CSV: aggregated_amortization_schedule.csv
+     - Excel: aggregated_amortization_schedule.xlsx
+
+---
+
+ Usage
+
+The consolidated cash flow summary is critical for:
+
+1. Loan Portfolio Management: Provides insights into the overall cash inflows and outflows from the portfolio of loans.
+2. Forecasting: Helps predict future cash flows, allowing for better financial planning.
+3. Performance Monitoring: Tracks the effectiveness of prepayments and the cost of borrowing (interest payments).
+
+---
+
+ Final Notes
+
+- The consolidated cash flow summary ensures that all financial metrics are transparent and easy to interpret.
+- For detailed cash flows by loan or period, refer to the Consolidated Amortization Schedule or the Aggregated Amortization Schedule outputs.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+ Consolidated Summary of All Cash Flows
+
+The consolidated summary aggregates all cash flows across loans, providing a clear overview of total payments, prepayments, interest, and principal by date. This is essential for assessing the cumulative impact of multiple loans on cash flow over time.
+
+---
+
+ Key Metrics in the Consolidated Summary
+1. Date: The specific date of the cash flow event.
+2. Loan Number: Identification of loans contributing to the cash flow.
+3. Total Payment: Sum of scheduled monthly payments across all loans for the given date.
+4. Total Prepayment: Aggregate prepayments across loans due to the Conditional Prepayment Rate (CPR).
+5. Total Interest: Total interest paid across loans for the given date.
+6. Total Principal: Total principal paid across loans for the given date.
+7. Closing Balance: The remaining total loan balance after the payments on the given date.
+
+---
+
+ Steps to Generate Consolidated Summary
+1. Group by Date and Loan Number:
+   - Aggregate the amortization schedule by date and loan number using summation for cash flow metrics and taking the last value for the closing balance.
+
+2. Summarize Across Loans:
+   - Sum the aggregated cash flows for all loans on each date.
+
+3. Export Consolidated Summary:
+   - Save the summarized data to CSV and Excel formats for further analysis or reporting.
+
+---
+
+ Example Consolidated Cash Flow Summary
+| Date       | Total Payment | Total Prepayment | Total Interest | Total Principal | Closing Balance |
+|------------|---------------|------------------|----------------|-----------------|-----------------|
+| 01-01-2024 | 100,000.00    | 10,000.00        | 5,000.00       | 95,000.00       | 950,000.00      |
+| 01-02-2024 | 100,000.00    | 10,500.00        | 4,800.00       | 95,200.00       | 854,800.00      |
+| 01-03-2024 | 100,000.00    | 11,000.00        | 4,600.00       | 95,400.00       | 759,400.00      |
+| ...        | ...           | ...              | ...            | ...             | ...             |
+
+---
+
+ Output Files
+- `consolidated_cash_flow_summary.csv`:
+   - A CSV file containing the consolidated cash flow summary.
+- `consolidated_cash_flow_summary.xlsx`:
+   - An Excel file containing the same data, formatted for easier analysis.
+
+---
+
+ Advantages of Consolidated Summary
+- Provides a high-level view of cash flows across all loans.
+- Helps identify trends in loan payments, prepayments, and interest reductions.
+- Useful for financial reporting, forecasting, and decision-making regarding loan portfolios.
