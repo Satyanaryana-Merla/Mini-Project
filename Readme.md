@@ -80,7 +80,6 @@ After setting up the virtual environment and installing the dependencies, follow
 
 The project requires the following Python packages, which are specified in the `requirements.txt` file:
 
-- `asttokens==2.4.1`
 - (Additional libraries as per your project)
 
 To install these dependencies, make sure you're in the virtual environment and run:
